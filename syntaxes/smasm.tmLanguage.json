@@ -1,0 +1,120 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "SMASM",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#literals"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#constants"
+		},
+		{
+			"include": "#commands"
+		},
+		{
+			"include": "#variables"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#symbols"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.double-slash.smasm",
+					"match": "^\\s*//.*"
+				},
+				{
+					"name": "comment.line.number-sign.smasm",
+					"match": "^\\s*#.*"
+				}
+			]
+		},
+		"literals": {
+			"patterns": [
+				{
+					"name": "string.unquoted.smasm",
+					"match": "^\\s*`.*"
+				}
+			]
+		},
+		"commands": {
+			"patterns": [
+				{
+					"name": "entity.name.function.smasm",
+					"match": "^\\s*\\w*(?!\\w*\\s*=)"
+				},
+				{
+					"name": "entity.name.function.smasm",
+					"match": "(?<!var\\s*\\w+\\s*=)(?<=\\w+\\s*=)\\s*[a-zA-Z_]\\w+"
+				}
+			]
+		},
+		"variables": {
+			"patterns": [
+				{
+					"name": "variable.parameter.smasm",
+					"match": "\\$\\w+"
+				},
+				{
+					"name": "variable.language.smasm",
+					"match": "@\\w+"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.smasm",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.smasm",
+					"match": "\\\\."
+				}
+			]
+		},
+		"constants": {
+			"patterns": [
+				{
+					"name": "constant.numeric.smasm",
+					"match": "\\s+-?\\d+(\\.\\d+)?"
+				},
+				{
+					"name": "constant.language.smasm",
+					"match": "\\s*(true|false|null)"
+				}
+			]
+		},
+		"symbols": {
+			"patterns": [
+				{
+					"name": "keyword.operator.smasm",
+					"match": "\\s*[!%^&*\\(\\)\\-+={}\\[\\]\\\\\\|;:'<\\.>/\\?]+"
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.smasm",
+					"match": "^\\s*(exit|sleep|jump|loop|endloop|for|endfor|if|else|endif|while|endwhile|section|endsection|jumpsection|function|endfunction|return)\\W|(?<!==)(?<==)\\s*call\\W"
+				},
+				{
+					"name": "keyword.other.smasm",
+					"match": "^\\s*(var|init)"
+				}
+			]
+		}
+	},
+	"scopeName": "source.smasm"
+}

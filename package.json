@@ -1,0 +1,25 @@
+{
+  "name": "smasm",
+  "displayName": "SMASM",
+  "description": "Simplified Mindustry Assembly",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "smasm",
+      "aliases": ["SMASM", "smasm"],
+      "extensions": [".smasm"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "smasm",
+      "scopeName": "source.smasm",
+      "path": "./syntaxes/smasm.tmLanguage.json"
+    }]
+  }
+}
