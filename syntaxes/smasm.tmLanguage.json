@@ -56,7 +56,7 @@
 				},
 				{
 					"name": "entity.name.function.smasm",
-					"match": "(?<!var\\s*\\w+\\s*=)(?<=\\w+\\s*=)\\s*[a-zA-Z_]\\w+"
+					"match": "(?<!var\\s*\\$?\\w+\\s*=)(?<=\\w+\\s*=)\\s*[a-zA-Z_]\\w+"
 				}
 			]
 		},
@@ -64,11 +64,11 @@
 			"patterns": [
 				{
 					"name": "variable.parameter.smasm",
-					"match": "\\$\\w+"
+					"match": "\\$(\\w|-)+"
 				},
 				{
 					"name": "variable.language.smasm",
-					"match": "@\\w+"
+					"match": "@(\\w|-)+"
 				}
 			]
 		},
@@ -87,7 +87,7 @@
 			"patterns": [
 				{
 					"name": "constant.numeric.smasm",
-					"match": "\\s+-?\\d+(\\.\\d+)?"
+					"match": "(?<=[\\(\\),]+)\\s*-?\\d+(\\.\\d+)?"
 				},
 				{
 					"name": "constant.language.smasm",
