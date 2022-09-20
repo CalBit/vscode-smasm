@@ -1,4 +1,4 @@
-# smasm README
+# SMASM
 
 Adds syntax highlighting for the SMASM programming language.
 
